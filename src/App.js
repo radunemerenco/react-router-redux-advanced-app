@@ -14,10 +14,16 @@ import { login } from './plugins/stylyze/actions/';
 import StylyzeMain from './plugins/stylyze/components/Main';
 import HomedepotMain from './plugins/homedepot/components/Main';
 
-// TODO: Implement the verification which component to run as main, based on build environment setting
-// If no environment is set, the Main component from stylyze plugin will be loaded.
-const env = 'Stylyze';
-const Main = (env === 'Stylyze') ? StylyzeMain : HomedepotMain;
+
+// Load a specific plugin main component based on run environment
+import config from 'config';
+
+let Main = null;
+if (config.appEnv === 'dev') {
+  Main = StylyzeMain;
+} else if (config.appEnv == 'dev-hd') {
+  Main = HomedepotMain;
+}
 
 
 /* Populated by react-webpack-redux:reducer */

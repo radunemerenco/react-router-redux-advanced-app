@@ -11,6 +11,7 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
+        <h2>Homedepot Plugin</h2>
         <div className="notice"><Link to="/hd">Homedepot plugin</Link></div>
       </div>
     );
