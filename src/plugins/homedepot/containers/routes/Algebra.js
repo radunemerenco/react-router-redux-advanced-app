@@ -2,14 +2,17 @@ import React, {
   Component,
   PropTypes
 } from 'react';
-import {} from '../../actions/';
+import { increment } from '../../actions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import SelfComponent from '../../components/SelfComponent';
+import IncrementComponent from '../../components/IncrementComponent';
 
 class Self extends Component {
   render() {
-    return <SelfComponent login={ this.props.user.login }/>;
+    return <IncrementComponent
+      number={ this.props.algebra.number }
+      increment={ this.props.actions.increment }
+    />;
   }
 }
 
@@ -18,12 +21,14 @@ self.propTypes = {
 };
 
 function mapStateToProps(state) {
-  const props = { user: state.user };
+  const props = {
+    algebra: state.algebra
+  };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = {};
+  const actions = { increment };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

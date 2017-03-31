@@ -1,11 +1,11 @@
 import Index from './containers/routes/Index';
-import Self from './containers/routes/Self';
+import Algebra from './containers/routes/Algebra';
 
 export default [
   { path: 'hd',
     component: Index
   },
-  { path: 'hd/self',
-    component: Self
+  { path: 'hd/algebra',
+    component: Algebra
   }
 ]

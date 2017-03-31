@@ -1,4 +1,4 @@
-import {LOGIN} from '../actions/const';
+import { INCREMENT } from '../actions/const';
 
 /* Define your initial state here.
  *
@@ -6,7 +6,7 @@ import {LOGIN} from '../actions/const';
  * src/container/App.js accordingly.
  */
 const initialState = {
-  login: false
+  number: 0
 };
 
 module.exports = function(state = initialState, action) {
@@ -14,8 +14,8 @@ module.exports = function(state = initialState, action) {
   let nextState = Object.assign({}, state);
 
   switch(action.type) {
-    case LOGIN: {
-      nextState.login = true;
+    case INCREMENT: {
+      nextState.number = state.number + 1;
       return nextState;
     }
 

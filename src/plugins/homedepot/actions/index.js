@@ -1,2 +1,2 @@
-const actions = { login: require('./login.js') };
+const actions = { increment: require('./increment.js') };
 module.exports = actions;

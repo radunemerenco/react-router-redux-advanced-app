@@ -1,21 +1,18 @@
 'use strict';
 
 import React from 'react';
-import {  login } from '../../actions';
+import {  increment } from '../../actions';
 import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';
-import LoginComponent from '../../components/LoginComponent';
+import SampleComponent from '../../components/SampleComponent';
 
 require('../../styles/routes/Index.css');
 
 class Index extends React.Component {
   render() {
     return (
-      <LoginComponent
-        login={this.props.actions.login}
-        loggedIn={this.props.user.login}
-      />
+      <SampleComponent increment={ this.props.actions.increment }/>
     );
   }
 }
@@ -23,12 +20,12 @@ class Index extends React.Component {
 Index.displayName = 'RoutesIndex';
 
 function mapStateToProps(state) {
-  const props = { user: state.user };
+  const props = { increment: state.increment };
   return props;
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { login };
+  const actions = { increment };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

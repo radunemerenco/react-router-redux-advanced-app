@@ -11,7 +11,10 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from './plugins/stylyze/actions/';
-import Main from './plugins/stylyze/components/Main';
+import StylyzeMain from './plugins/stylyze/components/Main';
+import HomedepotMain from './plugins/homedepot/components/Main';
+const env = 'Stylyze';
+const Main = (env === 'Stylyze') ? StylyzeMain : HomedepotMain;
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
@@ -34,7 +37,6 @@ App.propTypes = {
   user: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
-  console.log(state)
   /* Populated by react-webpack-redux:reducer */
   const props = { user: state.user };
   return props;

@@ -11,7 +11,9 @@ class AppComponent extends React.Component {
     return (
       <div className="index">
         <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice"><Link to="/example">react-router-redux example</Link></div>
+        <h2>Stylyze plugin</h2>
+        <div className="notice"><Link to="/example">stylyze</Link></div>
+        <div className="notice"><Link to="/hd">homedepot</Link></div>
       </div>
     );
   }
