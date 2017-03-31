@@ -10,13 +10,14 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 
-const stylyzeReducers = require('./plugins/stylyze/reducers/index');
-const homedepotReducers = require('./plugins/homedepot/reducers/index');
+import stylyzeReducers from './plugins/stylyze/reducers/index';
+import homedepotReducers from './plugins/homedepot/reducers/index';
 
 /* Populated by react-webpack-redux:reducer */
-const reducers = {
-  routing: routerReducer,
-  stylyzeReducers: stylyzeReducers,
-  homedepotReducers: homedepotReducers
+var reducers = {
+  routing: routerReducer
 };
+
+Object.assign(reducers, stylyzeReducers, homedepotReducers);
+
 module.exports = combineReducers(reducers);

@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-import { login } from '../../actions/';
+import {  login } from '../../actions';
 import { bindActionCreators } from 'redux';
 
 import { connect } from 'react-redux';

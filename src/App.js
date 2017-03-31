@@ -34,6 +34,7 @@ App.propTypes = {
   user: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
+  console.log(state)
   /* Populated by react-webpack-redux:reducer */
   const props = { user: state.user };
   return props;

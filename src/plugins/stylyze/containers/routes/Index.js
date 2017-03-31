@@ -1,11 +1,14 @@
 'use strict';
 
 import React from 'react';
-import { login } from '../../actions/';
 import { bindActionCreators } from 'redux';
-
 import { connect } from 'react-redux';
+
+
+import actions from '../../actions';
 import LoginComponent from '../../components/LoginComponent';
+
+const login = actions.login;
 
 require('../../styles/routes/Index.css');
 
