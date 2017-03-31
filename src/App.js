@@ -13,8 +13,13 @@ import { connect } from 'react-redux';
 import { login } from './plugins/stylyze/actions/';
 import StylyzeMain from './plugins/stylyze/components/Main';
 import HomedepotMain from './plugins/homedepot/components/Main';
+
+// TODO: Implement the verification which component to run as main, based on build environment setting
+// If no environment is set, the Main component from stylyze plugin will be loaded.
 const env = 'Stylyze';
 const Main = (env === 'Stylyze') ? StylyzeMain : HomedepotMain;
+
+
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
