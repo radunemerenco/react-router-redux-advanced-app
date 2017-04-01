@@ -1,4 +1,9 @@
-# react-router-redux-advanced-app
+# ReactJS + React-Router + Redux Advanced Application
+
+Install packages
+```javascript
+npm install
+```
 
 Start the server using one of those commands
 ```javascript
