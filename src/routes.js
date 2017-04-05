@@ -11,7 +11,6 @@ config.includePlugins.map(route => {
   allRoutes = allRoutes.concat(require('./plugins/' + route +'/routes').default);
 });
 
-console.log(allRoutes)
 const routes = [
   { path: '/',
     component: App,
