@@ -1,7 +1,6 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import SampleComponent from './SampleComponent';
 import CsbListComponent from '../../stylyze/components/CsbListComponent';
 
 require('../styles/Self.css');
