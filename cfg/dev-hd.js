@@ -23,12 +23,13 @@ let config = Object.assign({}, baseConfig, {
       searchResolveModulesDirectories: false
     })
   ],
-  stylyzePlugins: ['homedepot', 'stylyze'],
+  // First element will be treated as main plugin
+  compilePlugins: ['homedepot', 'stylyze'],
   module: defaultSettings.getDefaultModules()
 });
 
 // Apply filter to match all files, except unneeded plugins (the needed plugins are defined in config.stylyzePlugins
-var filesFilter = new RegExp('\/src\/(((plugins)\/(' + config.stylyzePlugins.join('|') + ')\/.*)|(?!plugins).*)\.(js|jsx)$');
+var filesFilter = new RegExp('\/src\/(((plugins)\/(' + config.compilePlugins.join('|') + ')\/.*)|(?!plugins).*)\.(js|jsx)$');
 // Add needed loaders to the defaults here
 config.module.loaders.push({
   test: filesFilter,
@@ -40,7 +41,7 @@ config.module.loaders.push({
 });
 
 config.resolve.alias = Object.assign({}, config.resolve.alias, {
-  mainComponent: `./plugins/${config.stylyzePlugins[0]}/components/Main`,
+  mainComponent: `./plugins/${config.compilePlugins[0]}/components/Main`,
 })
 
 module.exports = config;
