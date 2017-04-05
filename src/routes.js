@@ -1,10 +1,17 @@
 import App from './App';
 
-import stylyzeRoutes from './plugins/stylyze/routes'
-import homedepotRoutes from './plugins/homedepot/routes'
+import config from 'config';
 
-const allRoutes = stylyzeRoutes.concat(homedepotRoutes);
+let allRoutes = [];
+// Add main plugin routes
+allRoutes = allRoutes.concat(require('./plugins/' + config.pluginName +'/routes').default);
 
+// Add included plugins routes
+config.includePlugins.map(route => {
+  allRoutes = allRoutes.concat(require('./plugins/' + route +'/routes').default);
+});
+
+console.log(allRoutes)
 const routes = [
   { path: '/',
     component: App,

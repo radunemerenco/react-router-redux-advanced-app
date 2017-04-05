@@ -11,25 +11,16 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from './plugins/stylyze/actions/';
-import StylyzeMain from './plugins/stylyze/components/Main';
-import HomedepotMain from './plugins/homedepot/components/Main';
+
+import Main from 'mainComponent'
 
 
-// Load a specific plugin main component based on run environment
-import config from 'config';
-
-let Main = null;
-if (config.appEnv === 'dev') {
-  Main = StylyzeMain;
-} else if (config.appEnv == 'dev-hd') {
-  Main = HomedepotMain;
-}
 
 
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, user} = this.props;
+    // const {actions, user} = this.props;
     return (
       <div>
         <Main />

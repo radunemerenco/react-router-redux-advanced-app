@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import actions from '../../actions';
 import LoginComponent from '../../components/LoginComponent';
 
-const login = actions.login;
 
 require('../../styles/routes/Index.css');
 
@@ -31,7 +30,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  const actions = { login };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
