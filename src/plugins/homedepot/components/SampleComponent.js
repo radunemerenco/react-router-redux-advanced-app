@@ -13,7 +13,7 @@ class SampleComponent extends React.Component {
     }
     return (
       <div className="self-component">
-        <div>Home Depot</div>
+        <div>Sample Component</div>
         <Link to="/hd/algebra">Open Algebra</Link>
         { buttonElement }
       </div>

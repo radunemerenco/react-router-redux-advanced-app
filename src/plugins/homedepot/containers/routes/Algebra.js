@@ -12,6 +12,7 @@ class Algebra extends Component {
   render() {
     return <IncrementComponent
       number={ this.props.algebra.number }
+      csbs={ this.props.gallery.csbs }
       increment={ this.props.actions.increment }
       getCsbs={ this.props.actions.getCsbs }
     />;

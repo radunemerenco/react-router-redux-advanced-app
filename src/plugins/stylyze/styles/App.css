@@ -1,7 +1,11 @@
 /* Base Application Styles */
 body {
-  color: #333;
-  background: #fff;
+  color: #fff;
+  background: #2f3870;
+}
+
+a {
+  color: #c2d5ff;
 }
 
 .index img {
@@ -17,5 +21,7 @@ body {
   text-align: center;
   border: 1px solid #000;
   border-width: 1px 0;
+  color: #fff;
   background: #666;
 }
+

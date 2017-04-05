@@ -6,7 +6,7 @@ import {FETCH_CSBS} from '../actions/const';
  * src/container/App.js accordingly.
  */
 const initialState = {
-  csbs: null
+  csbs: []
 };
 
 module.exports = function(state = initialState, action) {
