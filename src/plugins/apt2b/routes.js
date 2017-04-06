@@ -1,3 +1,3 @@
-
-export default [
-]
+const routes = [
+];
+export default routes;

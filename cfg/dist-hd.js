@@ -1,5 +1,4 @@
 'use strict';
-
 let path = require('path');
 let webpack = require('webpack');
 
@@ -26,16 +25,12 @@ let config = Object.assign({}, baseConfig, {
     new webpack.optimize.AggressiveMergingPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-  // First element will be treated as main plugin
-  compilePlugins: ['stylyze', 'homedepot'],
   module: defaultSettings.getDefaultModules()
 });
 
-// Apply filter to match all files, except unneeded plugins (the needed plugins are defined in config.stylyzePlugins
-var filesFilter = new RegExp('\/src\/(((plugins)\/(' + config.compilePlugins.join('|') + ')\/.*)|(?!plugins).*)\.(js|jsx)$');
 // Add needed loaders to the defaults here
 config.module.loaders.push({
-  test: filesFilter,
+  test: /\.(js|jsx)$/,
   loader: 'babel',
   include: [].concat(
     config.additionalPaths,
@@ -44,7 +39,7 @@ config.module.loaders.push({
 });
 
 config.resolve.alias = Object.assign({}, config.resolve.alias, {
-  mainComponent: `./plugins/${config.compilePlugins[0]}/components/Main`,
-})
+  mainPlugin: `./plugins/homedepot`,
+});
 
 module.exports = config;
