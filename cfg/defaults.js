@@ -16,14 +16,13 @@ const dfltPort = 8001;
  */
 function getDefaultModules() {
   return {
-    preLoaders: [
+    loaders: [
       {
+        enforce: 'pre',
         test: /\.(js|jsx)$/,
         include: srcPath,
         loader: 'eslint-loader'
-      }
-    ],
-    loaders: [
+      },
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
@@ -60,5 +59,6 @@ module.exports = {
   srcPath: srcPath,
   publicPath: '/assets/',
   port: dfltPort,
+  additionalPaths: [],
   getDefaultModules: getDefaultModules
 };

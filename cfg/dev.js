@@ -2,11 +2,9 @@
 
 let path = require('path');
 let webpack = require('webpack');
+
 let baseConfig = require('./base');
 let defaultSettings = require('./defaults');
-
-// Add needed plugins here
-let BowerWebpackPlugin = require('bower-webpack-plugin');
 
 let config = Object.assign({}, baseConfig, {
   entry: [
@@ -18,20 +16,16 @@ let config = Object.assign({}, baseConfig, {
   devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new BowerWebpackPlugin({
-      searchResolveModulesDirectories: false
-    })
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: defaultSettings.getDefaultModules()
 });
-
 // Add needed loaders to the defaults here
 config.module.loaders.push({
   test: /\.(js|jsx)$/,
-  loader: 'react-hot!babel-loader',
+  loader: 'react-hot-loader!babel-loader',
   include: [].concat(
-    config.additionalPaths,
+    defaultSettings.additionalPaths,
     [ path.join(__dirname, '/../src') ]
   )
 });
@@ -39,5 +33,6 @@ config.module.loaders.push({
 config.resolve.alias = Object.assign({}, config.resolve.alias, {
   mainPlugin: `./plugins/stylyze`,
 });
+
 
 module.exports = config;
